@@ -1,18 +1,9 @@
-path = map(int, input(':').split(';'))
+keys = input('keys :').split(' ')
+values = map(int, input('values :').split(' '))
+values = list(values)
 
-path = list(path)
+y = dict()
+y.update(zip(keys, values))
 
-print(path)
-
-path.sort(reverse=True)
-
-print(path)
-
-index = 0
-
-for i in path:
-    path[index] = '{0: >9,}'.format(i)
-    index += 1
-
-for i in path:
-    print(i)
+y = {key: value for key, value in y.items() if value != 30 and key != 'delta'}
+print(y)
