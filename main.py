@@ -1,9 +1,10 @@
-a = set(range(0, 10))
+x, y = map(int, input().split())
 
-for i in a:
+a = {i for i in range(1, x+1) if x % i == 0}
+b = {i for i in range(1, y+1) if y % i == 0}
 
-    # if i == 2 or i == 7:
-    if i != 2 and i != 7:
-        print(False)
-    else:
-        print(i)
+divisor = a & b
+
+result = sum(divisor)
+
+print(result)
