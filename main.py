@@ -1,9 +1,9 @@
-keys = input('keys :').split(' ')
-values = map(int, input('values :').split(' '))
-values = list(values)
+a = set(range(0, 10))
 
-y = dict()
-y.update(zip(keys, values))
+for i in a:
 
-y = {key: value for key, value in y.items() if value != 30 and key != 'delta'}
-print(y)
+    # if i == 2 or i == 7:
+    if i != 2 and i != 7:
+        print(False)
+    else:
+        print(i)
