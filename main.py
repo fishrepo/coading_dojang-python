@@ -1,12 +1,10 @@
 with open('words.txt', 'r') as file:
 
-    lines = file.readline()
+    lines = file.readlines()
 
-    words = lines.split(' ')
+    print(lines)
 
-    for word in words:
-        if word.count('c') >= 1:
-
-            word = word.strip('.,')
-
+    for word in lines:
+        word = word.strip('\n')
+        if word == word[::-1]:
             print(word)
