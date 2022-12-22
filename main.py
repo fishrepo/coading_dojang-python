@@ -1,10 +1,12 @@
-x, y = map(int, input().split())
+with open('words.txt', 'r') as file:
 
-a = {i for i in range(1, x+1) if x % i == 0}
-b = {i for i in range(1, y+1) if y % i == 0}
+    lines = file.readline()
 
-divisor = a & b
+    words = lines.split(' ')
 
-result = sum(divisor)
+    for word in words:
+        if word.count('c') >= 1:
 
-print(result)
+            word = word.strip('.,')
+
+            print(word)
