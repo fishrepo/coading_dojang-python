@@ -1,15 +1,15 @@
-def countdown(n):
-    stack = n+1
+class Annie:
+    def __init__(self, health, mana, AP):
+        self.health = health
+        self.mana = mana
+        self.AP = AP
 
-    def count():
-        nonlocal stack
-        stack -= 1
-        return stack
-    return count
+    def tibbers(self):
+        damage = self.AP * 0.65 + 400
+
+        print('티버: 피해량 ', damage)
 
 
-n = int(input())
+a = Annie(1803.68, 1184.0, 645)
 
-c = countdown(n)
-for i in range(n):
-    print(c(), end=' ')
+a.tibbers()
