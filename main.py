@@ -1,21 +1,17 @@
-class Animal:
-    def eat(self):
-        print('먹다')
+class NotPalindromeError(Exception):
+    def __init__(self, *args: object) -> None:
+        super().__init__('회문이 아닙니다')
 
 
-class Wing:
-    def flap(self):
-        print('파닥거리다')
+def palindrome(word):
+    if word == word[::-1]:
+        print(word)
+    else:
+        raise NotPalindromeError
 
 
-class Bird(Animal, Wing):
-    def fly(self):
-        print('날다')
-
-
-b = Bird()
-b.eat()
-b.flap()
-b.fly()
-print(issubclass(Bird, Animal))
-print(issubclass(Bird, Wing))
+try:
+    word = input()
+    palindrome(word)
+except NotPalindromeError as e:
+    print(e)
