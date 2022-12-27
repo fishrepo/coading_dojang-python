@@ -1,21 +1,20 @@
-class TimeIterator():
-    def __init__(self, start, stop):
-        self.start = start
-        self.stop = stop
+def prime_number_generator(start, stop):
+    for n in range(start, stop):
+        # 소수여부 확인용 변수 생성
+        is_prime = True
+        # start 부터 stop의 모든 수에 대해 소수여부 확인
+        for i in range(2, n):
+            # 만약 소수가 아니면 소수여부 False 처리
+            if n % i == 0:
+                is_prime = False
+        # 소수여부 확인된 값만 전달
+        if is_prime:
+            yield n
 
-    def __getitem__(self, index):  # 반복가능한 객체를 만들기 위해 인덱스 값 만큼 리턴을 반복함
-        hour = (self.start + index) // 60 // 60 % 24
-        min = (self.start + index) // 60 % 60
-        sec = (self.start + index) % 60
-        if index < self.stop - self.start:
-            return '{0:02d}:{1:02d}:{2:02d}'.format(hour, min, sec)
-        else:
-            raise IndexError
 
+start, stop = map(int, input().split())
 
-start, stop, index = map(int, input().split())
-
-for i in TimeIterator(start, stop):
-    print(i)
-
-print('\n', TimeIterator(start, stop)[index], sep='')
+g = prime_number_generator(start, stop)
+print(type(g))
+for i in g:
+    print(i, end=' ')
