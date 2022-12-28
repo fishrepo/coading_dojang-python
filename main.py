@@ -1,20 +1,20 @@
-def prime_number_generator(start, stop):
-    for n in range(start, stop):
-        # 소수여부 확인용 변수 생성
-        is_prime = True
-        # start 부터 stop의 모든 수에 대해 소수여부 확인
-        for i in range(2, n):
-            # 만약 소수가 아니면 소수여부 False 처리
-            if n % i == 0:
-                is_prime = False
-        # 소수여부 확인된 값만 전달
-        if is_prime:
-            yield n
+
+def is_multiple(func):
+    def wrapper(a, b):
+        r = func(a, b)
+        x = 3
+        if r % x == 0:
+            print('{0}의 반환값은 {1}의 배수 입니다.'.format(func.__name__, x))
+        else:
+            print('{0}의 반환값은 {1}의 배수가 아닙니다.'.format(func.__name__, x))
+        return r
+    return wrapper
 
 
-start, stop = map(int, input().split())
+@is_multiple
+def add(a, b):
+    return a+b
 
-g = prime_number_generator(start, stop)
-print(type(g))
-for i in g:
-    print(i, end=' ')
+
+print(add(10, 20))
+print(add(2, 5))
